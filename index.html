@@ -9,7 +9,8 @@
 
     <h2>Formulario de Contacto</h2>
 
-    <form action="" method="post" onsubmit="mostrarDatos(event)">
+    <!-- Quitamos method="post" para evitar el error 405 -->
+    <form onsubmit="mostrarDatos(event)">
         
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required>
@@ -26,24 +27,22 @@
         <button type="submit">Enviar</button>
     </form>
 
-    <hr> <!-- Línea divisoria -->
+    <hr>
 
-    <!-- Aquí aparecerán los datos -->
     <h3>Datos Adquiridos:</h3>
     <p id="resultado"></p>
 
 
     <script>
         function mostrarDatos(event) {
-            // Evitar que la página se recargue o se cierre
-            event.preventDefault();
+            event.preventDefault(); // Evita que la página se recargue
 
-            // Obtener los valores de los inputs
+            // Obtener datos
             let nombre = document.getElementById("nombre").value;
             let apellido = document.getElementById("apellido").value;
             let telefono = document.getElementById("telefono").value;
 
-            // Mostrar el resultado en el párrafo
+            // Mostrar en pantalla
             document.getElementById("resultado").innerHTML = 
                 "Nombre: " + nombre + "<br>" +
                 "Apellido: " + apellido + "<br>" +
