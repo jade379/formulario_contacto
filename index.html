@@ -9,27 +9,47 @@
 
     <h2>Formulario de Contacto</h2>
 
-    <form action="#" method="post">
+    <form action="" method="post" onsubmit="mostrarDatos(event)">
         
-        <!-- Campo Nombre (obligatorio) -->
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required>
         <br><br>
 
-        <!-- Campo Apellido (obligatorio) -->
         <label for="apellido">Apellido:</label>
         <input type="text" id="apellido" name="apellido" required>
         <br><br>
 
-        <!-- Campo Teléfono (obligatorio y tipo tel) -->
         <label for="telefono">Teléfono:</label>
         <input type="tel" id="telefono" name="telefono" required>
         <br><br>
 
-        <!-- Botón de envío -->
         <button type="submit">Enviar</button>
-
     </form>
+
+    <hr> <!-- Línea divisoria -->
+
+    <!-- Aquí aparecerán los datos -->
+    <h3>Datos Adquiridos:</h3>
+    <p id="resultado"></p>
+
+
+    <script>
+        function mostrarDatos(event) {
+            // Evitar que la página se recargue o se cierre
+            event.preventDefault();
+
+            // Obtener los valores de los inputs
+            let nombre = document.getElementById("nombre").value;
+            let apellido = document.getElementById("apellido").value;
+            let telefono = document.getElementById("telefono").value;
+
+            // Mostrar el resultado en el párrafo
+            document.getElementById("resultado").innerHTML = 
+                "Nombre: " + nombre + "<br>" +
+                "Apellido: " + apellido + "<br>" +
+                "Teléfono: " + telefono;
+        }
+    </script>
 
 </body>
 </html>
