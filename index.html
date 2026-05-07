@@ -9,9 +9,7 @@
 
     <h2>Formulario de Contacto</h2>
 
-    <!-- Quitamos todo lo que pueda causar envío -->
     <form>
-        
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required>
         <br><br>
@@ -24,30 +22,29 @@
         <input type="tel" id="telefono" name="telefono" required>
         <br><br>
 
-        <!-- Cambiamos el botón para que sea normal y use onclick -->
-        <button type="button" onclick="mostrarDatos()">Enviar</button>
+        <!-- Botón normal, NO es submit -->
+        <button type="button" onclick="enviarDatos()">Enviar</button>
     </form>
 
     <hr>
 
-    <h3>Datos Adquiridos:</h3>
-    <p id="resultado"></p>
+    <!-- Aquí aparecerá el mensaje y los datos -->
+    <div id="mensaje"></div>
 
 
     <script>
-        function mostrarDatos() {
-            // Ya no necesitamos event.preventDefault() porque no se envía el formulario
-
-            // Obtener los valores
+        function enviarDatos() {
+            // Obtener lo que escribió el usuario
             let nombre = document.getElementById("nombre").value;
             let apellido = document.getElementById("apellido").value;
             let telefono = document.getElementById("telefono").value;
 
-            // Mostrar el resultado
-            document.getElementById("resultado").innerHTML = 
-                "Nombre: " + nombre + "<br>" +
-                "Apellido: " + apellido + "<br>" +
-                "Teléfono: " + telefono;
+            // Mostrar mensaje de confirmación y los datos
+            document.getElementById("mensaje").innerHTML = 
+                "<h3 style='color: green;'>✅ ¡Datos recibidos correctamente!</h3>" +
+                "<p><strong>Nombre:</strong> " + nombre + "</p>" +
+                "<p><strong>Apellido:</strong> " + apellido + "</p>" +
+                "<p><strong>Teléfono:</strong> " + telefono + "</p>";
         }
     </script>
 
